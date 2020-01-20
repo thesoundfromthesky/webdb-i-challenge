@@ -1,15 +1,14 @@
-
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('accounts', tbl => {
+  return knex.schema.createTable("accounts", tbl => {
     tbl.increments();
-    tbl.string('name')
+    tbl
+      .string("name")
       .notNullable()
       .unique();
-    tbl.decimal('budget')
-      .notNullable();
+    tbl.decimal("budget").notNullable();
   });
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTableIfExists('accounts');
+  return knex.schema.dropTableIfExists("accounts");
 };
